@@ -1,0 +1,89 @@
+flex
+- Tells how to use up the space in the avaialable area
+- If there is only one item inside of a component that has flex:1 set, it will use up the entire available space
+- if i have multiple siblings with flex values assigned, then they will split up the available space based on ratios
+
+LISTS (Are scrollable)
+- Flatlist (data, renderItem, keyExtractor are three main properties)
+    --> renderItem and sections are required
+    - keyExtractor -> a unique key must be provided when working with keys
+        - RN keeps track of each item in the list
+        - keys are used for caching
+        - if an item changes, with a key provided, the list can be updated instead of built since we can recalculate it
+        - if there is no key, the RN would have to rebuilt the entire list again which can be inefficient
+
+    - In FlatList, certain parameters are set as arrow functions that take in the input item
+        -This item variable is an input into the function and hence not defined
+        - All functions inside flatlist know to run on each of the 'item' from data array we provide
+        - 
+- SectionList
+    - If we have data that needs to be broken into sections then use this, if not use flatlist
+--Each item in a list should have a key and id, which helps with caching and re-rendering to screen if something is changed
+  or deleted. 
+
+
+
+
+props - The properties passed into a Child component when it is created inside of a parent component
+- Props are used to pass data from parent to child components
+- When creating a child component, the props object contains all the properties passed from the parent and can be accessed using props.___
+- props can be better used to customize components
+- if i have multiple child components inside a parent but they all only differ by a single variable, then
+    - can create just a single component and then customize for each time this component is rendered in the parent 
+- helps with component reusability
+
+*** Props are immutable so they cannot be changed inside of the child
+*** Props can only be passed from parent to child, not vice versa
+
+STATE - An object that contains information about a component we want to track
+- In the object we use key value pairs 
+- Helps us add, remove, modify things in our component
+- Initial render is when a component first renders onto the screen 
+    - If the state changes, the component re-renders itself
+
+PROPS VS STATE 
+- Props let us pass data into a component
+- State helps us internally manage data within our components
+- The state of a component cannot be modified from outside of the component
+- Similarly the props passed into a component cannot be modified from inside of the component
+
+
+
+IMAGES
+- use Image or ImageBackground - can provide source (need to have require) or uri (which is a url)
+
+
+DESTRUCTURING AN OBJECT -> extracting the variables in an object in a faster way
+- const { message } = props
+- Done based on the name of the variables in the object 
+
+
+
+CSS STUFF
+- justifyContent - sets alignment in the primary axis
+- alignItems - sets alignment in the cross axis (This is applied to the flex container itself)
+- alignSelf - sets alignment in cross axis (Applied to items inside of a flex container)
+ 
+
+NAVIGATION
+- Must use React Navigation which is a library in itself 
+- npm install @react-navigation/native
+- npx expo install react-native-screens react-native-safe-area-context
+
+React HOOKS
+- Hooks can only be called from inside react functions
+- Hooks must be called at the top level component and before return is called
+- useState is a hook 
+    - useState helps set up a piece of state for our component
+    - we pass in initialdefault value into useState
+    - we use array destructuring to access the variable and the function that needs to be called to update the variable
+- useEffect ->  hook provided by react that lets us perform side effects within our function
+    - Can pass in a dependency array, which lets you specify what data, when changed, you would like to trigger a rerender
+    - Clean up function to stop any of our side effects before the component unmounts
+
+
+
+Lifecycle Method
+
+Async functions and Await
+- Await is applied before a promise: The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
